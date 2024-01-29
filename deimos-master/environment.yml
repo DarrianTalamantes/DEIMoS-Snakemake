@@ -1,0 +1,22 @@
+name: deimos
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - dask
+  - h5py
+  - hdf5plugin
+  - matplotlib
+  - numpy
+  - pandas
+  - pip
+  - pymzml
+  - pytables
+  - python =3.8
+  - scikit-learn
+  - scipy
+  - snakemake
+  - statsmodels
+  - pip:
+    - ripser==0.6.4

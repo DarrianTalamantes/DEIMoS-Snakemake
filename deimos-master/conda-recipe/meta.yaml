@@ -1,0 +1,46 @@
+{% set data = load_setup_py_data(setup_file='../setup.py',
+                                 from_recipe_dir=True) %}
+
+package:
+  name: deimos
+  version: {{ data.get('version') }}
+
+source:
+  path: ..
+
+extra:
+  channels:
+    - conda-forge
+    - bioconda
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install -vv --no-deps ."
+  entry_points:
+    - deimos = deimos.cli:main
+
+requirements:
+  host:
+    - python =3.8
+    - pip
+  run:
+    - dask
+    - h5py
+    - hdf5plugin
+    - matplotlib
+    - numpy
+    - pandas
+    - pymzml
+    - pytables
+    - python =3.8
+    - ripser =0.6.4
+    - scikit-learn
+    - scipy
+    - snakemake
+    - statsmodels
+
+test:
+  imports:
+    - deimos
+  commands:
+    - deimos -h
