@@ -1,0 +1,45 @@
+# Dimensions to perform analysis operations in
+dims: ['mz', 'drift_time', 'retention_time']
+
+# mzML accession fields to access and name
+accession: {'drift_time': 'MS:1002476',
+            'retention_time': 'MS:1000016'}
+
+# Nominal intensity threshold
+threshold: 200
+
+# Configure smoothing
+smooth:
+  iters: 7
+  radius: [0, 1, 0]
+
+# Configure apex coordinate adjustment by weighted mean
+peakpick:
+  radius: [2, 10, 0]
+
+qc:
+  threshold: 5.e+3
+  tol: [100.e-6, 0.02, 0.2]
+  relative: [True, True, False]
+
+downselect:
+  partition:
+    split_on: 'mz'
+    size: 500
+    tol: 25.e-6
+  cluster:
+    tol: [40.e-6, 0.01, 0.1]
+    relative: [True, True, False]
+
+tune:
+  buffer_mass: 28.013
+  mz_tol: 400.e-6
+  dt_tol: 0.04
+  pos:
+    mz: [118.086255, 322.048121, 622.028960, 922.009798, 1221.990636, 1521.971475]
+    ccs: [121.3, 153.7, 203, 243.6, 282.2, 317]
+    q: [1, 1, 1, 1, 1, 1]
+  neg:
+    mz: [118.086255, 322.048121, 622.028960, 922.009798, 1221.990636, 1521.971475]
+    ccs: [121.3, 153.7, 203, 243.6, 282.2, 317]
+    q: [1, 1, 1, 1, 1, 1]

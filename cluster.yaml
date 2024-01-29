@@ -1,0 +1,7 @@
+__default__:
+  name: deimos
+  account: mq_dance
+  time: "1:00:00"
+  partition: shared
+  nodes: 1
+  ntasks: 8
