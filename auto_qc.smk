@@ -82,7 +82,7 @@ rule all:
                id=sample_ids, sample_type='samples')
 
 
-# Convert mzML to HDF5
+# Convert mzML to HDF5 #In DAG this is step 1
 rule mzml2hdf:
     input:
         lambda wildcards: join('input', sample_type_lookup[wildcards.id], fn_lookup[wildcards.id])
@@ -288,7 +288,7 @@ rule align_qc_qc:
         np.save(output[0], transform)
 
 
-# Align to closest quality control sample
+# Align to closest quality control sample #In DAG this is step 2
 rule align_qc_sample:
     input:
         rules.mzml2hdf.output,
@@ -311,6 +311,7 @@ rule align_qc_sample:
         relevant_qc_indices = [i for i, x in enumerate(qc_dts)
                                if (qc_columns[i] == column_type)
                                & (qc_modes[i] == ionization_mode)]
+        print(relevant_qc_indices)
 
         # Find index of closest datetime
         idx = find_closest_datetime_index(dt, [qc_dts[i] for i in relevant_qc_indices])
