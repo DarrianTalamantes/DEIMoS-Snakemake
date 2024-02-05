@@ -7,7 +7,9 @@ import numpy as np
 from os.path import *
 import pandas as pd
 import pymzml
+import logging
 
+logger = logging.getLogger(__name__)
 
 
 def get_ionization_mode(path):
@@ -314,7 +316,7 @@ rule align_qc_sample:
                                if (qc_columns[i] == column_type)
                                & (qc_modes[i] == ionization_mode)]
         logger.info("relevant_qc_indices: %s", relevant_qc_indices)
-        
+
         # Find index of closest datetime
         idx = find_closest_datetime_index(dt, [qc_dts[i] for i in relevant_qc_indices])
 
