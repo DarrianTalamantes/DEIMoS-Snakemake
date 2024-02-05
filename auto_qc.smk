@@ -9,6 +9,7 @@ import pandas as pd
 import pymzml
 
 
+
 def get_ionization_mode(path):
     acc = deimos.get_accessions(path)
     if 'positive scan' in acc.keys():
@@ -31,6 +32,8 @@ def find_closest_datetime_index(query_datetime, datetime_list):
     return idx
 
 
+#Load in the config file
+configfile: "config.yaml"
 # Change matplotlib backend to non-interactive
 plt.switch_backend("Agg")
 
