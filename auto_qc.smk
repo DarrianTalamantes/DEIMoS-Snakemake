@@ -311,7 +311,9 @@ rule align_qc_sample:
         relevant_qc_indices = [i for i, x in enumerate(qc_dts)
                                if (qc_columns[i] == column_type)
                                & (qc_modes[i] == ionization_mode)]
+        print("Below this is the relevant_qc_indices")
         print(relevant_qc_indices)
+        print("Above this is the relevant_qc_indices")
 
         # Find index of closest datetime
         idx = find_closest_datetime_index(dt, [qc_dts[i] for i in relevant_qc_indices])
