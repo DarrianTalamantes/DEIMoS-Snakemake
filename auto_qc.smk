@@ -298,6 +298,8 @@ rule align_qc_sample:
         join('output', '{sample_type}', 'qc_aligned', '{id}.h5')
     wildcard_constraints:
         sample_type='samples'
+    log:
+        "logs/align_qc_sample.log"
     run:
         # Get datetime of sample
         dt = get_datetime(join('input', 'samples', fn_lookup[wildcards.id]))
@@ -311,10 +313,8 @@ rule align_qc_sample:
         relevant_qc_indices = [i for i, x in enumerate(qc_dts)
                                if (qc_columns[i] == column_type)
                                & (qc_modes[i] == ionization_mode)]
-        print("Below this is the relevant_qc_indices")
-        print(relevant_qc_indices)
-        print("Above this is the relevant_qc_indices")
-
+        logger.info("relevant_qc_indices: %s", relevant_qc_indices)
+        
         # Find index of closest datetime
         idx = find_closest_datetime_index(dt, [qc_dts[i] for i in relevant_qc_indices])
 
