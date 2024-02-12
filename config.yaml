@@ -18,7 +18,7 @@ peakpick:
   radius: [2, 10, 0]
 
 qc:
-  threshold: 5.e+3
+  threshold: 1.e+3
   tol: [100.e-6, 0.02, 0.2]
   relative: [True, True, False]
 
