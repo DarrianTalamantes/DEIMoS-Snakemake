@@ -82,7 +82,6 @@ rule all:
                id=sample_ids, sample_type='samples')
 
 
-# Convert mzML to HDF5 #In DAG this is step 1
 rule mzml2hdf:
     input:
         lambda wildcards: join('input', sample_type_lookup[wildcards.id], fn_lookup[wildcards.id])
@@ -288,7 +287,6 @@ rule align_qc_qc:
         np.save(output[0], transform)
 
 
-# Align to closest quality control sample #In DAG this is step 2
 rule align_qc_sample:
     input:
         rules.mzml2hdf.output,

@@ -1,0 +1,72 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Select jobs to execute...
+[Tue Feb 20 14:31:40 2024]
+Finished job 44.
+10 of 24 steps (42%) done
+Select jobs to execute...
+
+[Tue Feb 20 14:31:40 2024]
+rule peakpick_sample:
+    input: output/samples/factors/2022_05_10_NR51517_02.npy, output/samples/smoothed/2022_05_10_NR51517_02.h5
+    output: output/samples/peakpicked/2022_05_10_NR51517_02.h5
+    jobid: 40
+    reason: Missing output files: output/samples/peakpicked/2022_05_10_NR51517_02.h5; Input files updated by another job: output/samples/smoothed/2022_05_10_NR51517_02.h5, output/samples/factors/2022_05_10_NR51517_02.npy
+    wildcards: sample_type=samples, id=2022_05_10_NR51517_02
+    resources: tmpdir=/tmp
+
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Select jobs to execute...
+[Tue Feb 20 14:31:44 2024]
+Error in rule peakpick_sample:
+    jobid: 0
+    input: output/samples/factors/2022_05_10_NR51517_02.npy, output/samples/smoothed/2022_05_10_NR51517_02.h5
+    output: output/samples/peakpicked/2022_05_10_NR51517_02.h5
+
+RuleException:
+ValueError in file /scratch/drt83172/Wallace_lab/DEIMoS-Snakemake/auto_qc.smk, line 30:
+attempt to get argmin of an empty sequence
+  File "/scratch/drt83172/Wallace_lab/DEIMoS-Snakemake/auto_qc.smk", line 450, in __rule_peakpick_sample
+  File "/scratch/drt83172/Wallace_lab/DEIMoS-Snakemake/auto_qc.smk", line 30, in find_closest_datetime_index
+  File "<__array_function__ internals>", line 200, in argmin
+  File "/home/drt83172/.conda/envs/deimos/lib/python3.8/site-packages/numpy/core/fromnumeric.py", line 1338, in argmin
+  File "/home/drt83172/.conda/envs/deimos/lib/python3.8/site-packages/numpy/core/fromnumeric.py", line 57, in _wrapfunc
+  File "/home/drt83172/.conda/envs/deimos/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-02-20T142549.965866.snakemake.log
+
+
+# Lines that go into creating this error
+#fn_lookup is a dictionary that is used throught this entire script many times.
+fn_lookup = {k: v for k, v in zip(sample_ids + qc_ids + tune_ids,
+                                  sample_fns + qc_fns + tune_fns)}
+
+# The wild cards ID comes from this next line. Its essentially the unique file name
+# example sample ID 2022_05_10_QC_04
+join('output', '{sample_type}', 'qc_transform', '{id}.npy')
+
+#This line refers to the fnlookup
+dt = get_datetime(join('input', 'samples', fn_lookup[wildcards.id]))
+qc_dts = [get_datetime(join('input', 'qc', x)) for x in qc_fns]
+idx = find_closest_datetime_index(dt, [qc_dts[i] for i in relevant_qc_indices])
+
+
+def get_datetime(path):
+    return datetime.strptime(pymzml.run.Reader(path).info['start_time'],
+                             '%Y-%m-%dT%H:%M:%SZ')
+                             
+def find_closest_datetime_index(query_datetime, datetime_list):
+    deltas = np.array([abs(dt - query_datetime) for dt in datetime_list])
+    idx = np.argmin(deltas) # Finding where the minimum lies on the array deltas
+
+    return idx
+
+
