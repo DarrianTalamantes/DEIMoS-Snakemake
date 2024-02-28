@@ -462,7 +462,7 @@ rule peakpick_sample:
             # Save
             deimos.save(output[0], peaks, key=k, mode='a')
 
-
+# This seems to keep peaks that are more intense
 # Merge close peaks
 rule downselect_peaks:
     input:
@@ -503,44 +503,3 @@ rule downselect_peaks:
             deimos.save(output[0], peaks, key=k, mode='a')
 
 
-rule calibrate_ccs:
-    input:
-        rules.mzml2hdf.output
-    output:
-        join('output', '{sample_type}', 'ccs_calibration', '{id}.npy'),
-        join('output', '{sample_type}', 'ccs_calibration', 'plots', '{id}.png')
-    wildcard_constraints:
-        sample_type='tune'
-    run:
-        # Load tune mix
-        tune_data = deimos.load(input[0], key='ms1')
-
-        # Ionization mode
-        ionization_mode = mode_lookup[wildcards.id]
-
-        # Perform calibration
-        ccs_cal = deimos.calibration.tunemix(tune_data,
-                                             mz=config['tune'][ionization_mode.lower()]['mz'],
-                                             ccs=config['tune'][ionization_mode.lower()]['ccs'],
-                                             q=config['tune'][ionization_mode.lower()]['q'],
-                                             buffer_mass=config['tune']['buffer_mass'],
-                                             mz_tol=config['tune']['mz_tol'],
-                                             dt_tol=config['tune']['dt_tol'])
-        
-        # Save calibration result
-        np.save(output[0], ccs_cal)
-
-        # Plot calibration result
-        # TODO: Make this a function
-        fig, ax = plt.subplots(1, dpi=300, figsize=(3, 3), facecolor='w')
-        ax.scatter(ccs_cal.reduced_ccs, ccs_cal.ta, s=2, color='C0')
-        newx = np.linspace(ccs_cal.reduced_ccs.min(), ccs_cal.reduced_ccs.max(), 1000)
-        ax.plot(newx, ccs_cal.beta * newx + ccs_cal.tfix, linewidth=1, linestyle='--', color='k',
-                label='beta: {:.3f}\ntfix: {:.3f}\nr-squared: {:.3f}'.format(ccs_cal.beta, ccs_cal.tfix, ccs_cal.fit['r'] ** 2))
-        ax.set_xlabel('Reduced CCS', fontweight='bold')
-        ax.set_ylabel('Arrival Time', fontweight='bold')
-        ax.legend()
-
-        plt.tight_layout()
-        plt.savefig(output[1])
-        plt.close()
