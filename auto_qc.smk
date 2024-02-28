@@ -27,7 +27,7 @@ def get_datetime(path):
 
 def find_closest_datetime_index(query_datetime, datetime_list):
     deltas = np.array([abs(dt - query_datetime) for dt in datetime_list])
-    idx = np.argmin(deltas)
+    idx = np.argmin(deltas) # Finding where the minimum lies on the array deltas
 
     return idx
 
@@ -422,36 +422,26 @@ rule smooth_sample:
 ## Maybe integrate Hannahs final step into pipline as another rule
 ## Ignore any "tune" files
 
+
+######
+# Current error is from the rule below
+# 1. The errors seem to be caused by loading tune_dts into just about anything. (we dont have tune files)
+# Possible fix: It seems like the tune file is used because they are doing a CSS calibration. Dont think we need that.
+# Im going to change all the tune stuff to maybe just being deleted and the file will now save in "samples"
+######
+
 # Perform peak detection
 
 rule peakpick_sample:
     input:
         rules.factorize_sample.output,
-        rules.smooth_sample.output,
-        expand(join('output', '{sample_type}', 'ccs_calibration', '{id}.npy'),
-               id=tune_ids, sample_type='tune')
+        rules.smooth_sample.output
+
     output:
         join('output', '{sample_type}', 'peakpicked', '{id}.h5')
     wildcard_constraints:
         sample_type='samples'
     run:
-        # Get datetime of sample
-        dt = get_datetime(join('input', 'samples', fn_lookup[wildcards.id]))
-
-        # Find relevant tune mix
-        # TODO: Function to return relevant IDs and indices?
-        ionization_mode = mode_lookup[wildcards.id]
-        relevant_tune_indices = [i for i, x in enumerate(tune_dts)
-                                 if (tune_modes[i] == ionization_mode)]
-
-        # Find index of closest datetime
-        idx = find_closest_datetime_index(dt, [tune_dts[i] for i in relevant_tune_indices])
-
-        # Load tune calibration
-        ccs_cal = np.load(join('output', 'tune', 'ccs_calibration',
-                               tune_ids[relevant_tune_indices[idx]] + '.npy'),
-                          allow_pickle=True).item()
-
         # Load factors
         factors = np.load(input[0], allow_pickle=True).item()
 
@@ -468,10 +458,6 @@ rule peakpick_sample:
                                                         factors=factors[k],
                                                         dims=config['dims'],
                                                         radius=config['peakpick']['radius'])
-            
-            # Apply CCS calibration
-            if k == 'ms1':
-                peaks['ccs'] = ccs_cal.arrival2ccs(mz=peaks['mz'], ta=peaks['drift_time'], q=1)
 
             # Save
             deimos.save(output[0], peaks, key=k, mode='a')
