@@ -17,4 +17,4 @@ header = f"{column_names}\n"
 
 
 # save data to numpy data frame
-np.savetxt('delete_me.csv', ms1, delimiter=',', header=header)
+np.savetxt('delete_me.csv', ms1, delimiter=',', header=header, comments='')
