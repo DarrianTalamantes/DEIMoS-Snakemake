@@ -13,7 +13,10 @@ ms1 = deimos.load(
 
 # Add column names
 column_names = ["mz", "drift_time", "retention_time", "intensity"]
-header = f"{column_names}\n"
+
+# Convert the list of column names to a comma-separated string
+column_names_str = ','.join(column_names)
+header = f"{column_names_str}"
 
 
 # save data to numpy data frame

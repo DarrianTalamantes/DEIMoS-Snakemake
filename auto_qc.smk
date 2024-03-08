@@ -503,3 +503,24 @@ rule downselect_peaks:
             deimos.save(output[0], peaks, key=k, mode='a')
 
 
+
+# rule save_to_csv:
+#     input:
+#         rules.downselect_peaks.output
+#     output:
+#         join('output', '{sample_type}', 'final_csvs', '{id}.csv')
+#     wildcard_constraints:
+#         sample_type='samples'
+#     run:
+#         # Add column names
+#         column_names = config['dims']
+#         header = f"{column_names}\n"
+
+
+#         # Get keys
+#         keys = list(h5py.File(input, 'r').keys())
+
+#         # Enumerate MS levels
+#         for k in keys:
+#             # Load data
+#             data = deimos.load(input[0], key=k, columns=config['dims'] + ['intensity'])
