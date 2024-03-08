@@ -10,6 +10,8 @@ When you want to get the deimos conda envirnment working you must use "mamba env
 to activate envirnment you must use "source activate deimos"
 once envirnment is active you can then run this command "pip install -e ." (might only have to do this once.
 
+code to create a DAG: 
+snakemake -s auto_qc.smk --dag | dot -Tsvg > dag.svg
 
 Explination on how the program works:
 
@@ -33,8 +35,8 @@ Explination on how the program works:
 
 8 Rule smooth_sample: This rule uses the outputs of factorize_sample and threshold_sample to use the function deimos.filters.smooth().
 
-9 Rule peakpick_sample: This Rule uses the output of factorize_sample and smooth_sample to 
+9 Rule peakpick_sample: This Rule uses the output of factorize_sample and smooth_sample to run the function deimos.peakpick.persistent_homology().
 
-10 Rule Downselect_peaks:
+10 Rule Downselect_peaks: This Rule uses the output of peakpick_sample to run deimos.multi_sample_partition() and partitions.map(deimos.alignment.agglomerative_clustering()). It then does a few other transformations and finally drops all but th most intense peaks.
 
 11 Rule tba: This takes the downselected peak files. uses deimos.load to load them into a dictionary and saves the dictionary as a good csv file. Data can be found in output/samples/final_csvs

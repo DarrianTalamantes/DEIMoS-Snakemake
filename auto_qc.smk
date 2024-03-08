@@ -78,8 +78,11 @@ column_lookup = {k: v for k, v in zip(sample_ids + qc_ids,
 # Collect all outputs
 rule all:
     input:
-        expand(join('output', '{sample_type}', 'downselected', '{id}.h5'),
-               id=sample_ids, sample_type='samples')
+        # OG ouptut
+        # expand(join('output', '{sample_type}', 'downselected', '{id}.h5'),
+        #        id=sample_ids, sample_type='samples')
+        expand(join('output', '{sample_type}', 'final_csvs', '{id}.csv'),
+                id=sample_ids, sample_type='samples')
 
 
 rule mzml2hdf:
