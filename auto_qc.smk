@@ -500,7 +500,7 @@ rule save_to_csv:
         sample_type='samples'
     run:
         # Get keys
-        keys = list(h5py.File(input, 'r').keys())
+        keys = list(h5py.File(input[0], 'r').keys())
 
         # Enumerate MS levels
         for k in keys:
@@ -515,4 +515,4 @@ rule save_to_csv:
         header = f"{column_names_str}"
 
         # save data to numpy data frame
-        np.savetxt(output[0], ms1, delimiter=',', header=header, comments='')
+        np.savetxt(output[0], data, delimiter=',', header=header, comments='')
