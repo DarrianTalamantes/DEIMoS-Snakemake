@@ -10,3 +10,11 @@ When you want to get the deimos conda envirnment working you must use "mamba env
 to activate envirnment you must use "source activate deimos"
 once envirnment is active you can then run this command "pip install -e ." (might only have to do this once.
 
+
+Explination on how the program works:
+
+1 Rule mzml2hdf: This rule uses the deimos.load function on all mzml files to turn them into h5 files. Specifically it seems to save MS levels.
+
+2.1 Rule factorize_qc:
+
+2.2
