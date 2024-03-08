@@ -414,22 +414,6 @@ rule smooth_sample:
             # Save
             deimos.save(output[0], data, key=k, mode='a')
 
-
-## Everything up to here should be good as long as it runs
-## Here I need to edit this rule for Hannahs needs
-## Css calibration steps probs not needed
-## probably have to make a rule that will export to a csv/excel file
-## Maybe integrate Hannahs final step into pipline as another rule
-## Ignore any "tune" files
-
-
-######
-# Current error is from the rule below
-# 1. The errors seem to be caused by loading tune_dts into just about anything. (we dont have tune files)
-# Possible fix: It seems like the tune file is used because they are doing a CSS calibration. Dont think we need that.
-# Im going to change all the tune stuff to maybe just being deleted and the file will now save in "samples"
-######
-
 # Perform peak detection
 
 rule peakpick_sample:
@@ -503,24 +487,29 @@ rule downselect_peaks:
             deimos.save(output[0], peaks, key=k, mode='a')
 
 
+# Saves the output to an easy to read csv file
+rule save_to_csv:
+    input:
+        rules.downselect_peaks.output
+    output:
+        join('output', '{sample_type}', 'final_csvs', '{id}.csv')
+    wildcard_constraints:
+        sample_type='samples'
+    run:
+        # Get keys
+        keys = list(h5py.File(input, 'r').keys())
 
-# rule save_to_csv:
-#     input:
-#         rules.downselect_peaks.output
-#     output:
-#         join('output', '{sample_type}', 'final_csvs', '{id}.csv')
-#     wildcard_constraints:
-#         sample_type='samples'
-#     run:
-#         # Add column names
-#         column_names = config['dims']
-#         header = f"{column_names}\n"
+        # Enumerate MS levels
+        for k in keys:
+            # Load data
+            data = deimos.load(input[0], key=k, columns=config['dims'] + ['intensity'])
+        
+        # Add column names
+        column_names = config['dims']
 
+        # Convert the list of column names to a comma-separated string
+        column_names_str = ','.join(column_names)
+        header = f"{column_names_str}"
 
-#         # Get keys
-#         keys = list(h5py.File(input, 'r').keys())
-
-#         # Enumerate MS levels
-#         for k in keys:
-#             # Load data
-#             data = deimos.load(input[0], key=k, columns=config['dims'] + ['intensity'])
+        # save data to numpy data frame
+        np.savetxt(output[0], ms1, delimiter=',', header=header, comments='')

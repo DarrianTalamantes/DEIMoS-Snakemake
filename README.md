@@ -27,13 +27,13 @@ Explination on how the program works:
 
 6 Rule align_qc_sample: This rule uses the sample output from mzml2hdf and align_qc_qc to find the closest date_time_index out of the qc files. It then applies that transformation on the sample and saves it. 
 
-7.1 Rule actorize_sample:
+7.1 Rule factorize_sample: This rule uses the output of align_qc_sample to run deimos.build_factors() on it.
 
-7.2 Rule threshold_sample:
+7.2 Rule threshold_sample: This rule uses the output of align_qc_sample to run deimos.threshold() on it. This uses the 'threshold' form the config file.
 
-8 Rule smooth_sample:
+8 Rule smooth_sample: This rule uses the outputs of factorize_sample and threshold_sample to use the function deimos.filters.smooth().
 
-9 Rule peakpick_sample:
+9 Rule peakpick_sample: This Rule uses the output of factorize_sample and smooth_sample to 
 
 10 Rule Downselect_peaks:
 
