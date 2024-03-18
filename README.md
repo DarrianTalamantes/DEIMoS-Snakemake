@@ -14,6 +14,9 @@ once envirnment is active you can then run this command "pip install -e ." (migh
 code to create a DAG: 
 snakemake -s auto_qc.smk --dag | dot -Tsvg > dag.svg
 
+Code to run program
+snakemake -s auto_qc.smk --cores 6
+
 Explination on how the program works:
 
 1 Rule mzml2hdf: This rule uses the deimos.load() function on all mzml files to turn them into h5 files. Specifically it seems to save MS levels. This is for both qc and sample files. The accession is the variable used here and it can be changed in the config file under "accession". The output of this command is saved in {sample_type}/parsed
