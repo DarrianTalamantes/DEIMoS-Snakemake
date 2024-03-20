@@ -509,7 +509,7 @@ rule save_to_csv:
             data = deimos.load(input[0], key=k, columns=config['dims'] + ['intensity'])
         
         # Add column names
-        column_names = config['dims'] + ['intensity'])
+        column_names = config['dims'] + ['intensity']
 
         # Convert the list of column names to a comma-separated string
         column_names_str = ','.join(column_names)
