@@ -225,6 +225,7 @@ rule align_qc_qc:
         sample_type='qc'
     run:
         # Metadata
+        # Remember wildcards.id refers to {id}
         column_type = column_lookup[wildcards.id]
         ionization_mode = mode_lookup[wildcards.id]
 
@@ -508,7 +509,7 @@ rule save_to_csv:
             data = deimos.load(input[0], key=k, columns=config['dims'] + ['intensity'])
         
         # Add column names
-        column_names = config['dims']
+        column_names = config['dims'] + ['intensity'])
 
         # Convert the list of column names to a comma-separated string
         column_names_str = ','.join(column_names)
