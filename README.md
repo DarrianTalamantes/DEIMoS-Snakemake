@@ -14,8 +14,19 @@ once envirnment is active you can then run this command "pip install -e ." (migh
 code to create a DAG: 
 snakemake -s auto_qc.smk --dag | dot -Tsvg > dag.svg
 
-Code to run program
-snakemake -s auto_qc.smk --cores 6
+Code to run program (2 cores so you dont load too much into memory at once)
+snakemake -s auto_qc.smk --cores 2
+
+Directory breakdown:
+auto_qc.smk
+input
+--- qc (where qc files go)
+---samples (where sample files go)
+output
+--- qc (where all qc outputs go)
+--- samples (where you can find final outputs and intermediates)
+
+
 
 Explination on how the program works:
 
