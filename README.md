@@ -26,7 +26,8 @@ output
 --- qc (where all qc outputs go)
 --- samples (where you can find final outputs and intermediates)
 
-
+Memory Necessary to run
+When using snakemake the more cores you run the more memory it takes up. Id say allocate 8 GB of RAM per core you want to use
 
 Explination on how the program works:
 
