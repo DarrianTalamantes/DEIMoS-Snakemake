@@ -92,6 +92,8 @@ def local_maxima(features, dims=['mz', 'drift_time', 'retention_time'],
 def persistent_homology(features, index=None, factors=None, dims=['mz', 'drift_time', 'retention_time'],
                         radius=None):
     '''
+    None is the default parameter.
+    
     Peak detection by persistent homology, implemented as a sparse upper star
     filtration.
 
