@@ -1,0 +1,30 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+align_qc_sample         1
+all                     1
+downselect_peaks        1
+factorize_sample        1
+peakpick_sample         1
+smooth_sample           1
+threshold_sample        1
+total                   7
+
+Select jobs to execute...
+
+[Mon Feb  5 16:55:55 2024]
+rule align_qc_sample:
+    input: output/samples/parsed/2023_08_22_P_LC_600_40_NIST_10X_01.h5
+    output: output/samples/qc_aligned/2023_08_22_P_LC_600_40_NIST_10X_01.h5
+    jobid: 4
+    reason: Missing output files: output/samples/qc_aligned/2023_08_22_P_LC_600_40_NIST_10X_01.h5
+    wildcards: sample_type=samples, id=2023_08_22_P_LC_600_40_NIST_10X_01
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-02-05T165551.636227.snakemake.log

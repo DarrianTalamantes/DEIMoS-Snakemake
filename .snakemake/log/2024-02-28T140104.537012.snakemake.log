@@ -1,0 +1,26 @@
+Full Traceback (most recent call last):
+  File "/home/drt83172/.conda/envs/deimos/lib/python3.8/site-packages/snakemake/__init__.py", line 671, in snakemake
+    workflow.include(
+  File "/home/drt83172/.conda/envs/deimos/lib/python3.8/site-packages/snakemake/workflow.py", line 1389, in include
+    exec(compile(code, snakefile.get_path_or_uri(), "exec"), self.globals)
+  File "/scratch/drt83172/Wallace_lab/DEIMoS-Snakemake/auto_qc.smk", line 2, in <module>
+    import deimos
+  File "/scratch/drt83172/Wallace_lab/DEIMoS-Snakemake/deimos-master/deimos/__init__.py", line 1, in <module>
+    from deimos import (alignment, calibration, deconvolution, filters, grid,
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 839, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 934, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1033, in get_data
+KeyboardInterrupt
+
+KeyboardInterrupt in file /scratch/drt83172/Wallace_lab/DEIMoS-Snakemake/auto_qc.smk, line 2.
+  File "/scratch/drt83172/Wallace_lab/DEIMoS-Snakemake/auto_qc.smk", line 2, in <module>
+  File "/scratch/drt83172/Wallace_lab/DEIMoS-Snakemake/deimos-master/deimos/__init__.py", line 1, in <module>
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 839, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 934, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1033, in get_data

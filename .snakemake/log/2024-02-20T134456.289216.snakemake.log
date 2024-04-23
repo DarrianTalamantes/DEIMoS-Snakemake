@@ -1,0 +1,111 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+align_qc_qc             4
+align_qc_sample         4
+all                     1
+downselect_peaks        4
+factorize_sample        4
+peakpick_sample         4
+smooth_sample           4
+threshold_sample        4
+total                  29
+
+Select jobs to execute...
+
+[Tue Feb 20 13:45:48 2024]
+rule align_qc_qc:
+    input: output/qc/peakpicked/2022_05_10_QC_07.h5, output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_05.h5, output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_07.h5
+    output: output/qc/qc_transform/2022_05_10_QC_07.npy, output/qc/qc_transform/plots/2022_05_10_QC_07.png
+    jobid: 29
+    reason: Missing output files: output/qc/qc_transform/2022_05_10_QC_07.npy
+    wildcards: sample_type=qc, id=2022_05_10_QC_07
+    resources: tmpdir=/tmp
+
+[Tue Feb 20 13:45:48 2024]
+rule align_qc_qc:
+    input: output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_05.h5, output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_07.h5
+    output: output/qc/qc_transform/2022_05_10_QC_04.npy, output/qc/qc_transform/plots/2022_05_10_QC_04.png
+    jobid: 6
+    reason: Missing output files: output/qc/qc_transform/2022_05_10_QC_04.npy
+    wildcards: sample_type=qc, id=2022_05_10_QC_04
+    resources: tmpdir=/tmp
+
+[Tue Feb 20 13:45:50 2024]
+rule align_qc_qc:
+    input: output/qc/peakpicked/2022_05_10_QC_05.h5, output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_05.h5, output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_07.h5
+    output: output/qc/qc_transform/2022_05_10_QC_05.npy, output/qc/qc_transform/plots/2022_05_10_QC_05.png
+    jobid: 27
+    reason: Missing output files: output/qc/qc_transform/2022_05_10_QC_05.npy
+    wildcards: sample_type=qc, id=2022_05_10_QC_05
+    resources: tmpdir=/tmp
+
+[Tue Feb 20 13:45:50 2024]
+rule align_qc_qc:
+    input: output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_05.h5, output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_07.h5
+    output: output/qc/qc_transform/2022_05_10_QC_06.npy, output/qc/qc_transform/plots/2022_05_10_QC_06.png
+    jobid: 28
+    reason: Missing output files: output/qc/qc_transform/2022_05_10_QC_06.npy
+    wildcards: sample_type=qc, id=2022_05_10_QC_06
+    resources: tmpdir=/tmp
+
+[Tue Feb 20 13:45:58 2024]
+Finished job 28.
+1 of 29 steps (3%) done
+[Tue Feb 20 13:45:58 2024]
+Finished job 27.
+2 of 29 steps (7%) done
+[Tue Feb 20 13:45:58 2024]
+Finished job 6.
+3 of 29 steps (10%) done
+[Tue Feb 20 13:45:58 2024]
+Finished job 29.
+4 of 29 steps (14%) done
+Select jobs to execute...
+
+[Tue Feb 20 13:45:58 2024]
+rule align_qc_sample:
+    input: output/samples/parsed/2022_05_10_NR46543_02.h5, output/qc/qc_transform/2022_05_10_QC_04.npy, output/qc/qc_transform/2022_05_10_QC_05.npy, output/qc/qc_transform/2022_05_10_QC_06.npy, output/qc/qc_transform/2022_05_10_QC_07.npy
+    output: output/samples/qc_aligned/2022_05_10_NR46543_02.h5
+    jobid: 4
+    reason: Missing output files: output/samples/qc_aligned/2022_05_10_NR46543_02.h5; Input files updated by another job: output/qc/qc_transform/2022_05_10_QC_05.npy, output/qc/qc_transform/2022_05_10_QC_07.npy, output/qc/qc_transform/2022_05_10_QC_06.npy, output/qc/qc_transform/2022_05_10_QC_04.npy
+    wildcards: sample_type=samples, id=2022_05_10_NR46543_02
+    resources: tmpdir=/tmp
+
+[Tue Feb 20 13:45:58 2024]
+rule align_qc_sample:
+    input: output/samples/parsed/2022_05_10_NR51588_02.h5, output/qc/qc_transform/2022_05_10_QC_04.npy, output/qc/qc_transform/2022_05_10_QC_05.npy, output/qc/qc_transform/2022_05_10_QC_06.npy, output/qc/qc_transform/2022_05_10_QC_07.npy
+    output: output/samples/qc_aligned/2022_05_10_NR51588_02.h5
+    jobid: 49
+    reason: Missing output files: output/samples/qc_aligned/2022_05_10_NR51588_02.h5; Input files updated by another job: output/qc/qc_transform/2022_05_10_QC_05.npy, output/qc/qc_transform/2022_05_10_QC_07.npy, output/qc/qc_transform/2022_05_10_QC_06.npy, output/qc/qc_transform/2022_05_10_QC_04.npy
+    wildcards: sample_type=samples, id=2022_05_10_NR51588_02
+    resources: tmpdir=/tmp
+
+[Tue Feb 20 13:45:58 2024]
+rule align_qc_sample:
+    input: output/samples/parsed/2022_05_10_NR50510_02.h5, output/qc/qc_transform/2022_05_10_QC_04.npy, output/qc/qc_transform/2022_05_10_QC_05.npy, output/qc/qc_transform/2022_05_10_QC_06.npy, output/qc/qc_transform/2022_05_10_QC_07.npy
+    output: output/samples/qc_aligned/2022_05_10_NR50510_02.h5
+    jobid: 35
+    reason: Missing output files: output/samples/qc_aligned/2022_05_10_NR50510_02.h5; Input files updated by another job: output/qc/qc_transform/2022_05_10_QC_05.npy, output/qc/qc_transform/2022_05_10_QC_07.npy, output/qc/qc_transform/2022_05_10_QC_06.npy, output/qc/qc_transform/2022_05_10_QC_04.npy
+    wildcards: sample_type=samples, id=2022_05_10_NR50510_02
+    resources: tmpdir=/tmp
+
+[Tue Feb 20 13:45:58 2024]
+rule align_qc_sample:
+    input: output/samples/parsed/2022_05_10_NR51517_02.h5, output/qc/qc_transform/2022_05_10_QC_04.npy, output/qc/qc_transform/2022_05_10_QC_05.npy, output/qc/qc_transform/2022_05_10_QC_06.npy, output/qc/qc_transform/2022_05_10_QC_07.npy
+    output: output/samples/qc_aligned/2022_05_10_NR51517_02.h5
+    jobid: 42
+    reason: Missing output files: output/samples/qc_aligned/2022_05_10_NR51517_02.h5; Input files updated by another job: output/qc/qc_transform/2022_05_10_QC_05.npy, output/qc/qc_transform/2022_05_10_QC_07.npy, output/qc/qc_transform/2022_05_10_QC_06.npy, output/qc/qc_transform/2022_05_10_QC_04.npy
+    wildcards: sample_type=samples, id=2022_05_10_NR51517_02
+    resources: tmpdir=/tmp
+
+[Tue Feb 20 13:47:02 2024]
+Finished job 4.
+5 of 29 steps (17%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-02-20T134456.289216.snakemake.log

@@ -1,0 +1,43 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+align_qc_sample         3
+all                     1
+downselect_peaks        4
+factorize_sample        4
+peakpick_sample         4
+save_to_csv             4
+smooth_sample           4
+threshold_sample        4
+total                  28
+
+Select jobs to execute...
+
+[Tue Apr 23 15:53:43 2024]
+rule threshold_sample:
+    input: output/samples/qc_aligned/2022_05_10_NR51588_02.h5
+    output: output/samples/thresholded/2022_05_10_NR51588_02.h5
+    jobid: 56
+    reason: Missing output files: output/samples/thresholded/2022_05_10_NR51588_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR51588_02
+    resources: tmpdir=/tmp
+
+[Tue Apr 23 15:53:43 2024]
+rule factorize_sample:
+    input: output/samples/qc_aligned/2022_05_10_NR51588_02.h5
+    output: output/samples/factors/2022_05_10_NR51588_02.npy
+    jobid: 52
+    reason: Missing output files: output/samples/factors/2022_05_10_NR51588_02.npy
+    wildcards: sample_type=samples, id=2022_05_10_NR51588_02
+    resources: tmpdir=/tmp
+
+[Tue Apr 23 15:54:02 2024]
+Finished job 56.
+1 of 28 steps (4%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-04-23T155318.136544.snakemake.log

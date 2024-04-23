@@ -1,0 +1,203 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+all                     1
+downselect_peaks        4
+peakpick_sample         4
+smooth_sample           2
+total                  11
+
+Resources before job selection: {'_cores': 4, '_nodes': 9223372036854775807}
+Ready jobs (4)
+Select jobs to execute...
+Selected jobs (4)
+Resources after job selection: {'_cores': 0, '_nodes': 9223372036854775803}
+
+[Wed Feb 28 14:16:51 2024]
+rule smooth_sample:
+    input: output/samples/factors/2022_05_10_NR46543_02.npy, output/samples/thresholded/2022_05_10_NR46543_02.h5
+    output: output/samples/smoothed/2022_05_10_NR46543_02.h5
+    jobid: 30
+    reason: Missing output files: output/samples/smoothed/2022_05_10_NR46543_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR46543_02
+    resources: tmpdir=/tmp
+
+[Wed Feb 28 14:16:51 2024]
+rule peakpick_sample:
+    input: output/samples/factors/2022_05_10_NR51588_02.npy, output/samples/smoothed/2022_05_10_NR51588_02.h5
+    output: output/samples/peakpicked/2022_05_10_NR51588_02.h5
+    jobid: 47
+    reason: Missing output files: output/samples/peakpicked/2022_05_10_NR51588_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR51588_02
+    resources: tmpdir=/tmp
+
+[Wed Feb 28 14:16:53 2024]
+rule peakpick_sample:
+    input: output/samples/factors/2022_05_10_NR51517_02.npy, output/samples/smoothed/2022_05_10_NR51517_02.h5
+    output: output/samples/peakpicked/2022_05_10_NR51517_02.h5
+    jobid: 40
+    reason: Missing output files: output/samples/peakpicked/2022_05_10_NR51517_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR51517_02
+    resources: tmpdir=/tmp
+
+[Wed Feb 28 14:16:53 2024]
+rule smooth_sample:
+    input: output/samples/factors/2022_05_10_NR50510_02.npy, output/samples/thresholded/2022_05_10_NR50510_02.h5
+    output: output/samples/smoothed/2022_05_10_NR50510_02.h5
+    jobid: 37
+    reason: Missing output files: output/samples/smoothed/2022_05_10_NR50510_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR50510_02
+    resources: tmpdir=/tmp
+
+[Wed Feb 28 14:24:45 2024]
+Finished job 40.
+1 of 11 steps (9%) done
+Resources before job selection: {'_cores': 1, '_nodes': 9223372036854775804}
+Ready jobs (1)
+Select jobs to execute...
+Using greedy selector because only single job has to be scheduled.
+Selected jobs (1)
+Resources after job selection: {'_cores': 0, '_nodes': 9223372036854775803}
+
+[Wed Feb 28 14:24:45 2024]
+rule downselect_peaks:
+    input: output/samples/peakpicked/2022_05_10_NR51517_02.h5
+    output: output/samples/downselected/2022_05_10_NR51517_02.h5
+    jobid: 39
+    reason: Missing output files: output/samples/downselected/2022_05_10_NR51517_02.h5; Input files updated by another job: output/samples/peakpicked/2022_05_10_NR51517_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR51517_02
+    resources: tmpdir=/tmp
+
+[Wed Feb 28 14:24:45 2024]
+Finished job 30.
+2 of 11 steps (18%) done
+Resources before job selection: {'_cores': 1, '_nodes': 9223372036854775804}
+Ready jobs (1)
+Select jobs to execute...
+Using greedy selector because only single job has to be scheduled.
+Selected jobs (1)
+Resources after job selection: {'_cores': 0, '_nodes': 9223372036854775803}
+
+[Wed Feb 28 14:24:45 2024]
+rule peakpick_sample:
+    input: output/samples/factors/2022_05_10_NR46543_02.npy, output/samples/smoothed/2022_05_10_NR46543_02.h5
+    output: output/samples/peakpicked/2022_05_10_NR46543_02.h5
+    jobid: 2
+    reason: Missing output files: output/samples/peakpicked/2022_05_10_NR46543_02.h5; Input files updated by another job: output/samples/smoothed/2022_05_10_NR46543_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR46543_02
+    resources: tmpdir=/tmp
+
+[Wed Feb 28 14:24:58 2024]
+Finished job 47.
+3 of 11 steps (27%) done
+Resources before job selection: {'_cores': 1, '_nodes': 9223372036854775804}
+Ready jobs (1)
+Select jobs to execute...
+Using greedy selector because only single job has to be scheduled.
+Selected jobs (1)
+Resources after job selection: {'_cores': 0, '_nodes': 9223372036854775803}
+
+[Wed Feb 28 14:24:58 2024]
+rule downselect_peaks:
+    input: output/samples/peakpicked/2022_05_10_NR51588_02.h5
+    output: output/samples/downselected/2022_05_10_NR51588_02.h5
+    jobid: 46
+    reason: Missing output files: output/samples/downselected/2022_05_10_NR51588_02.h5; Input files updated by another job: output/samples/peakpicked/2022_05_10_NR51588_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR51588_02
+    resources: tmpdir=/tmp
+
+[Wed Feb 28 14:24:58 2024]
+Finished job 37.
+4 of 11 steps (36%) done
+Resources before job selection: {'_cores': 1, '_nodes': 9223372036854775804}
+Ready jobs (1)
+Select jobs to execute...
+Using greedy selector because only single job has to be scheduled.
+Selected jobs (1)
+Resources after job selection: {'_cores': 0, '_nodes': 9223372036854775803}
+
+[Wed Feb 28 14:24:58 2024]
+rule peakpick_sample:
+    input: output/samples/factors/2022_05_10_NR50510_02.npy, output/samples/smoothed/2022_05_10_NR50510_02.h5
+    output: output/samples/peakpicked/2022_05_10_NR50510_02.h5
+    jobid: 33
+    reason: Missing output files: output/samples/peakpicked/2022_05_10_NR50510_02.h5; Input files updated by another job: output/samples/smoothed/2022_05_10_NR50510_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR50510_02
+    resources: tmpdir=/tmp
+
+[Wed Feb 28 14:25:00 2024]
+Finished job 39.
+5 of 11 steps (45%) done
+[Wed Feb 28 14:25:05 2024]
+Finished job 2.
+6 of 11 steps (55%) done
+Resources before job selection: {'_cores': 2, '_nodes': 9223372036854775805}
+Ready jobs (1)
+Select jobs to execute...
+Using greedy selector because only single job has to be scheduled.
+Selected jobs (1)
+Resources after job selection: {'_cores': 1, '_nodes': 9223372036854775804}
+
+[Wed Feb 28 14:25:05 2024]
+rule downselect_peaks:
+    input: output/samples/peakpicked/2022_05_10_NR46543_02.h5
+    output: output/samples/downselected/2022_05_10_NR46543_02.h5
+    jobid: 1
+    reason: Missing output files: output/samples/downselected/2022_05_10_NR46543_02.h5; Input files updated by another job: output/samples/peakpicked/2022_05_10_NR46543_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR46543_02
+    resources: tmpdir=/tmp
+
+[Wed Feb 28 14:26:48 2024]
+Finished job 33.
+7 of 11 steps (64%) done
+Resources before job selection: {'_cores': 2, '_nodes': 9223372036854775805}
+Ready jobs (1)
+Select jobs to execute...
+Using greedy selector because only single job has to be scheduled.
+Selected jobs (1)
+Resources after job selection: {'_cores': 1, '_nodes': 9223372036854775804}
+
+[Wed Feb 28 14:26:48 2024]
+rule downselect_peaks:
+    input: output/samples/peakpicked/2022_05_10_NR50510_02.h5
+    output: output/samples/downselected/2022_05_10_NR50510_02.h5
+    jobid: 32
+    reason: Missing output files: output/samples/downselected/2022_05_10_NR50510_02.h5; Input files updated by another job: output/samples/peakpicked/2022_05_10_NR50510_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR50510_02
+    resources: tmpdir=/tmp
+
+[Wed Feb 28 14:26:48 2024]
+Finished job 46.
+8 of 11 steps (73%) done
+[Wed Feb 28 14:26:49 2024]
+Finished job 1.
+9 of 11 steps (82%) done
+[Wed Feb 28 14:27:18 2024]
+Finished job 32.
+10 of 11 steps (91%) done
+Resources before job selection: {'_cores': 4, '_nodes': 9223372036854775807}
+Ready jobs (1)
+Select jobs to execute...
+Using greedy selector because only single job has to be scheduled.
+Selected jobs (1)
+Resources after job selection: {'_cores': 3, '_nodes': 9223372036854775806}
+
+[Wed Feb 28 14:27:18 2024]
+localrule all:
+    input: output/samples/downselected/2022_05_10_NR46543_02.h5, output/samples/downselected/2022_05_10_NR50510_02.h5, output/samples/downselected/2022_05_10_NR51517_02.h5, output/samples/downselected/2022_05_10_NR51588_02.h5
+    jobid: 0
+    reason: Input files updated by another job: output/samples/downselected/2022_05_10_NR51588_02.h5, output/samples/downselected/2022_05_10_NR46543_02.h5, output/samples/downselected/2022_05_10_NR51517_02.h5, output/samples/downselected/2022_05_10_NR50510_02.h5
+    resources: tmpdir=/tmp
+
+[Wed Feb 28 14:27:18 2024]
+Finished job 0.
+11 of 11 steps (100%) done
+Complete log: .snakemake/log/2024-02-28T140810.680922.snakemake.log
+unlocking
+removing lock
+removing lock
+removed all locks

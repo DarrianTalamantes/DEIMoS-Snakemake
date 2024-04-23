@@ -1,0 +1,98 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+align_qc_qc             4
+align_qc_sample         4
+all                     1
+downselect_peaks        4
+factorize_qc            4
+factorize_sample        4
+mzml2hdf                8
+peakpick_qc             4
+peakpick_sample         4
+save_to_csv             4
+smooth_qc               4
+smooth_sample           4
+threshold_qc            4
+threshold_sample        4
+total                  57
+
+Select jobs to execute...
+
+[Mon Mar 18 12:57:00 2024]
+rule mzml2hdf:
+    input: input/samples/2022_05_10_NR51588_02.mzML
+    output: output/samples/parsed/2022_05_10_NR51588_02.h5
+    jobid: 54
+    reason: Missing output files: output/samples/parsed/2022_05_10_NR51588_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR51588_02
+    resources: tmpdir=/tmp
+
+[Mon Mar 18 12:57:00 2024]
+rule mzml2hdf:
+    input: input/qc/2022_05_10_QC_05.mzML
+    output: output/qc/parsed/2022_05_10_QC_05.h5
+    jobid: 15
+    reason: Missing output files: output/qc/parsed/2022_05_10_QC_05.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_05
+    resources: tmpdir=/tmp
+
+[Mon Mar 18 12:57:00 2024]
+rule mzml2hdf:
+    input: input/qc/2022_05_10_QC_07.mzML
+    output: output/qc/parsed/2022_05_10_QC_07.h5
+    jobid: 25
+    reason: Missing output files: output/qc/parsed/2022_05_10_QC_07.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_07
+    resources: tmpdir=/tmp
+
+[Mon Mar 18 12:57:00 2024]
+rule mzml2hdf:
+    input: input/samples/2022_05_10_NR51517_02.mzML
+    output: output/samples/parsed/2022_05_10_NR51517_02.h5
+    jobid: 46
+    reason: Missing output files: output/samples/parsed/2022_05_10_NR51517_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR51517_02
+    resources: tmpdir=/tmp
+
+[Mon Mar 18 12:59:01 2024]
+rule mzml2hdf:
+    input: input/qc/2022_05_10_QC_06.mzML
+    output: output/qc/parsed/2022_05_10_QC_06.h5
+    jobid: 20
+    reason: Missing output files: output/qc/parsed/2022_05_10_QC_06.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_06
+    resources: tmpdir=/tmp
+
+[Mon Mar 18 12:59:01 2024]
+rule mzml2hdf:
+    input: input/qc/2022_05_10_QC_04.mzML
+    output: output/qc/parsed/2022_05_10_QC_04.h5
+    jobid: 10
+    reason: Missing output files: output/qc/parsed/2022_05_10_QC_04.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_04
+    resources: tmpdir=/tmp
+
+Removing output files of failed job mzml2hdf since they might be corrupted:
+output/samples/parsed/2022_05_10_NR51588_02.h5
+Removing output files of failed job mzml2hdf since they might be corrupted:
+output/samples/parsed/2022_05_10_NR51517_02.h5
+[Mon Mar 18 13:09:29 2024]
+Finished job 15.
+1 of 57 steps (2%) done
+[Mon Mar 18 13:14:53 2024]
+Finished job 25.
+2 of 57 steps (4%) done
+[Mon Mar 18 13:14:56 2024]
+Finished job 20.
+3 of 57 steps (5%) done
+[Mon Mar 18 13:18:19 2024]
+Finished job 10.
+4 of 57 steps (7%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-03-18T125205.873840.snakemake.log

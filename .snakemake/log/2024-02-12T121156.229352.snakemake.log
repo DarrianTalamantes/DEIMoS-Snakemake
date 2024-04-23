@@ -1,0 +1,81 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+align_qc_sample        13
+all                     1
+downselect_peaks       13
+factorize_sample       13
+mzml2hdf               13
+peakpick_sample        13
+smooth_sample          13
+threshold_sample       13
+total                  92
+
+Select jobs to execute...
+
+[Mon Feb 12 12:12:05 2024]
+rule mzml2hdf:
+    input: input/samples/2022_05_10_NR51517_02.mzML
+    output: output/samples/parsed/2022_05_10_NR51517_02.h5
+    jobid: 19
+    reason: Missing output files: output/samples/parsed/2022_05_10_NR51517_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR51517_02
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:12:05 2024]
+rule mzml2hdf:
+    input: input/samples/2022_05_10_NR52187_02.mzML
+    output: output/samples/parsed/2022_05_10_NR52187_02.h5
+    jobid: 40
+    reason: Missing output files: output/samples/parsed/2022_05_10_NR52187_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR52187_02
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:12:05 2024]
+rule mzml2hdf:
+    input: input/samples/2022_05_10_NR46543_02.mzML
+    output: output/samples/parsed/2022_05_10_NR46543_02.h5
+    jobid: 5
+    reason: Missing output files: output/samples/parsed/2022_05_10_NR46543_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR46543_02
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:12:05 2024]
+rule mzml2hdf:
+    input: input/samples/2022_05_10_NR51588_02.mzML
+    output: output/samples/parsed/2022_05_10_NR51588_02.h5
+    jobid: 26
+    reason: Missing output files: output/samples/parsed/2022_05_10_NR51588_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR51588_02
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:13:13 2024]
+Finished job 5.
+1 of 92 steps (1%) done
+Select jobs to execute...
+
+[Mon Feb 12 12:13:13 2024]
+rule align_qc_sample:
+    input: output/samples/parsed/2022_05_10_NR46543_02.h5
+    output: output/samples/qc_aligned/2022_05_10_NR46543_02.h5
+    jobid: 4
+    reason: Missing output files: output/samples/qc_aligned/2022_05_10_NR46543_02.h5; Input files updated by another job: output/samples/parsed/2022_05_10_NR46543_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR46543_02
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:13:21 2024]
+Finished job 40.
+2 of 92 steps (2%) done
+[Mon Feb 12 12:13:32 2024]
+Finished job 26.
+3 of 92 steps (3%) done
+[Mon Feb 12 12:13:36 2024]
+Finished job 19.
+4 of 92 steps (4%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-02-12T121156.229352.snakemake.log

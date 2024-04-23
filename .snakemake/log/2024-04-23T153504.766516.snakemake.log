@@ -1,0 +1,64 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+align_qc_sample         1
+all                     1
+downselect_peaks        4
+factorize_sample        3
+peakpick_sample         4
+save_to_csv             4
+smooth_sample           4
+threshold_sample        3
+total                  24
+
+Select jobs to execute...
+
+[Tue Apr 23 15:35:29 2024]
+rule factorize_sample:
+    input: output/samples/qc_aligned/2022_05_10_NR46543_02.h5
+    output: output/samples/factors/2022_05_10_NR46543_02.npy
+    jobid: 4
+    reason: Missing output files: output/samples/factors/2022_05_10_NR46543_02.npy
+    wildcards: sample_type=samples, id=2022_05_10_NR46543_02
+    resources: tmpdir=/tmp
+
+[Tue Apr 23 15:35:29 2024]
+rule threshold_sample:
+    input: output/samples/qc_aligned/2022_05_10_NR46543_02.h5
+    output: output/samples/thresholded/2022_05_10_NR46543_02.h5
+    jobid: 32
+    reason: Missing output files: output/samples/thresholded/2022_05_10_NR46543_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR46543_02
+    resources: tmpdir=/tmp
+
+[Tue Apr 23 15:35:29 2024]
+rule factorize_sample:
+    input: output/samples/qc_aligned/2022_05_10_NR51588_02.h5
+    output: output/samples/factors/2022_05_10_NR51588_02.npy
+    jobid: 52
+    reason: Missing output files: output/samples/factors/2022_05_10_NR51588_02.npy
+    wildcards: sample_type=samples, id=2022_05_10_NR51588_02
+    resources: tmpdir=/tmp
+
+[Tue Apr 23 15:35:29 2024]
+rule threshold_sample:
+    input: output/samples/qc_aligned/2022_05_10_NR50510_02.h5
+    output: output/samples/thresholded/2022_05_10_NR50510_02.h5
+    jobid: 40
+    reason: Missing output files: output/samples/thresholded/2022_05_10_NR50510_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR50510_02
+    resources: tmpdir=/tmp
+
+[Tue Apr 23 15:35:48 2024]
+Finished job 52.
+1 of 24 steps (4%) done
+[Tue Apr 23 15:35:48 2024]
+Finished job 40.
+2 of 24 steps (8%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-04-23T153504.766516.snakemake.log

@@ -1,0 +1,2 @@
+SyntaxError in file /scratch/drt83172/Wallace_lab/DEIMoS-Snakemake/auto_qc.smk, line 502:
+EOF in multi-line statement (auto_qc.smk, line 502)

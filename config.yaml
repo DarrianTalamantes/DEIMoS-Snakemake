@@ -10,16 +10,16 @@ threshold: 150
 
 # Configure smoothing
 smooth:
-  iters: 1
-  radius: [1, 1, 1]
+  iters: 7
+  radius: [0, 1, 0]
 
 # Configure apex coordinate adjustment by weighted mean
 peakpick:
-  radius: [0, 0, 0]
+  radius: [2, 10, 0]
 
 qc:
   threshold: 1.e+3
-  tol: [500.e-4, 0.02, 1]
+  tol: [100.e-6, 0.02, .2]
   relative: [True, True, False]
 
 downselect:

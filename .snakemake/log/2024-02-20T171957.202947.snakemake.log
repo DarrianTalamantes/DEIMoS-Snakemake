@@ -1,0 +1,73 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+all                     1
+downselect_peaks        4
+factorize_sample        1
+peakpick_sample         4
+smooth_sample           3
+threshold_sample        1
+total                  14
+
+Resources before job selection: {'_cores': 4, '_nodes': 9223372036854775807}
+Ready jobs (4)
+Select jobs to execute...
+Selected jobs (4)
+Resources after job selection: {'_cores': 0, '_nodes': 9223372036854775803}
+
+[Tue Feb 20 17:20:34 2024]
+rule smooth_sample:
+    input: output/samples/factors/2022_05_10_NR51588_02.npy, output/samples/thresholded/2022_05_10_NR51588_02.h5
+    output: output/samples/smoothed/2022_05_10_NR51588_02.h5
+    jobid: 51
+    reason: Missing output files: output/samples/smoothed/2022_05_10_NR51588_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR51588_02
+    resources: tmpdir=/tmp
+
+[Tue Feb 20 17:20:34 2024]
+rule threshold_sample:
+    input: output/samples/qc_aligned/2022_05_10_NR50510_02.h5
+    output: output/samples/thresholded/2022_05_10_NR50510_02.h5
+    jobid: 38
+    reason: Missing output files: output/samples/thresholded/2022_05_10_NR50510_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR50510_02
+    resources: tmpdir=/tmp
+
+[Tue Feb 20 17:20:34 2024]
+rule factorize_sample:
+    input: output/samples/qc_aligned/2022_05_10_NR46543_02.h5
+    output: output/samples/factors/2022_05_10_NR46543_02.npy
+    jobid: 3
+    reason: Missing output files: output/samples/factors/2022_05_10_NR46543_02.npy
+    wildcards: sample_type=samples, id=2022_05_10_NR46543_02
+    resources: tmpdir=/tmp
+
+[Tue Feb 20 17:20:34 2024]
+rule peakpick_sample:
+    input: output/samples/factors/2022_05_10_NR51517_02.npy, output/samples/smoothed/2022_05_10_NR51517_02.h5
+    output: output/samples/peakpicked/2022_05_10_NR51517_02.h5
+    jobid: 40
+    reason: Missing output files: output/samples/peakpicked/2022_05_10_NR51517_02.h5
+    wildcards: sample_type=samples, id=2022_05_10_NR51517_02
+    resources: tmpdir=/tmp
+
+[Tue Feb 20 17:20:54 2024]
+Finished job 38.
+1 of 14 steps (7%) done
+[Tue Feb 20 17:20:56 2024]
+Finished job 3.
+2 of 14 steps (14%) done
+[Tue Feb 20 17:20:58 2024]
+Finished job 51.
+3 of 14 steps (21%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-02-20T171957.202947.snakemake.log
+unlocking
+removing lock
+removing lock
+removed all locks

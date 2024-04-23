@@ -1,0 +1,3 @@
+SyntaxError:
+Not all output, log and benchmark files of rule align_qc_sample contain the same wildcards. This is crucial though, in order to avoid that two or more jobs write to the same file.
+  File "/scratch/drt83172/Wallace_lab/DEIMoS-Snakemake/auto_qc.smk", line 303, in <module>

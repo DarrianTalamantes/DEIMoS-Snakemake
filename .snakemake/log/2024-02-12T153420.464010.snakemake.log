@@ -1,0 +1,58 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+align_qc_qc             4
+align_qc_sample         4
+all                     1
+downselect_peaks        4
+factorize_sample        4
+peakpick_sample         4
+smooth_sample           4
+threshold_sample        4
+total                  29
+
+Select jobs to execute...
+
+[Mon Feb 12 15:37:50 2024]
+rule align_qc_qc:
+    input: output/qc/peakpicked/2022_05_10_QC_07.h5, output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_05.h5, output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_07.h5
+    output: output/qc/qc_transform/2022_05_10_QC_07.npy, output/qc/qc_transform/plots/2022_05_10_QC_07.png
+    jobid: 29
+    reason: Missing output files: output/qc/qc_transform/2022_05_10_QC_07.npy
+    wildcards: sample_type=qc, id=2022_05_10_QC_07
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 15:37:50 2024]
+rule align_qc_qc:
+    input: output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_05.h5, output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_07.h5
+    output: output/qc/qc_transform/2022_05_10_QC_04.npy, output/qc/qc_transform/plots/2022_05_10_QC_04.png
+    jobid: 6
+    reason: Missing output files: output/qc/qc_transform/2022_05_10_QC_04.npy
+    wildcards: sample_type=qc, id=2022_05_10_QC_04
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 15:37:50 2024]
+rule align_qc_qc:
+    input: output/qc/peakpicked/2022_05_10_QC_05.h5, output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_05.h5, output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_07.h5
+    output: output/qc/qc_transform/2022_05_10_QC_05.npy, output/qc/qc_transform/plots/2022_05_10_QC_05.png
+    jobid: 27
+    reason: Missing output files: output/qc/qc_transform/2022_05_10_QC_05.npy
+    wildcards: sample_type=qc, id=2022_05_10_QC_05
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 15:37:50 2024]
+rule align_qc_qc:
+    input: output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_05.h5, output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_07.h5
+    output: output/qc/qc_transform/2022_05_10_QC_06.npy, output/qc/qc_transform/plots/2022_05_10_QC_06.png
+    jobid: 28
+    reason: Missing output files: output/qc/qc_transform/2022_05_10_QC_06.npy
+    wildcards: sample_type=qc, id=2022_05_10_QC_06
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-02-12T153420.464010.snakemake.log

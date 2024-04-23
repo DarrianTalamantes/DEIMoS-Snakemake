@@ -1,0 +1,74 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+all                1
+save_to_csv        4
+total              5
+
+Select jobs to execute...
+
+[Wed Mar 20 12:42:55 2024]
+rule save_to_csv:
+    input: output/samples/downselected/2022_05_10_NR50510_02.h5
+    output: output/samples/final_csvs/2022_05_10_NR50510_02.csv
+    jobid: 33
+    reason: Missing output files: output/samples/final_csvs/2022_05_10_NR50510_02.csv; Code has changed since last execution
+    wildcards: sample_type=samples, id=2022_05_10_NR50510_02
+    resources: tmpdir=/tmp
+
+[Wed Mar 20 12:42:55 2024]
+rule save_to_csv:
+    input: output/samples/downselected/2022_05_10_NR51588_02.h5
+    output: output/samples/final_csvs/2022_05_10_NR51588_02.csv
+    jobid: 49
+    reason: Missing output files: output/samples/final_csvs/2022_05_10_NR51588_02.csv; Code has changed since last execution
+    wildcards: sample_type=samples, id=2022_05_10_NR51588_02
+    resources: tmpdir=/tmp
+
+[Wed Mar 20 12:42:55 2024]
+rule save_to_csv:
+    input: output/samples/downselected/2022_05_10_NR51517_02.h5
+    output: output/samples/final_csvs/2022_05_10_NR51517_02.csv
+    jobid: 41
+    reason: Missing output files: output/samples/final_csvs/2022_05_10_NR51517_02.csv; Code has changed since last execution
+    wildcards: sample_type=samples, id=2022_05_10_NR51517_02
+    resources: tmpdir=/tmp
+
+[Wed Mar 20 12:42:55 2024]
+rule save_to_csv:
+    input: output/samples/downselected/2022_05_10_NR46543_02.h5
+    output: output/samples/final_csvs/2022_05_10_NR46543_02.csv
+    jobid: 1
+    reason: Missing output files: output/samples/final_csvs/2022_05_10_NR46543_02.csv; Code has changed since last execution
+    wildcards: sample_type=samples, id=2022_05_10_NR46543_02
+    resources: tmpdir=/tmp
+
+[Wed Mar 20 12:43:01 2024]
+Finished job 33.
+1 of 5 steps (20%) done
+[Wed Mar 20 12:43:01 2024]
+Finished job 1.
+2 of 5 steps (40%) done
+[Wed Mar 20 12:43:01 2024]
+Finished job 49.
+3 of 5 steps (60%) done
+[Wed Mar 20 12:43:01 2024]
+Finished job 41.
+4 of 5 steps (80%) done
+Select jobs to execute...
+
+[Wed Mar 20 12:43:01 2024]
+localrule all:
+    input: output/samples/final_csvs/2022_05_10_NR46543_02.csv, output/samples/final_csvs/2022_05_10_NR50510_02.csv, output/samples/final_csvs/2022_05_10_NR51517_02.csv, output/samples/final_csvs/2022_05_10_NR51588_02.csv
+    jobid: 0
+    reason: Input files updated by another job: output/samples/final_csvs/2022_05_10_NR51517_02.csv, output/samples/final_csvs/2022_05_10_NR50510_02.csv, output/samples/final_csvs/2022_05_10_NR51588_02.csv, output/samples/final_csvs/2022_05_10_NR46543_02.csv
+    resources: tmpdir=/tmp
+
+[Wed Mar 20 12:43:01 2024]
+Finished job 0.
+5 of 5 steps (100%) done
+Complete log: .snakemake/log/2024-03-20T124146.312346.snakemake.log

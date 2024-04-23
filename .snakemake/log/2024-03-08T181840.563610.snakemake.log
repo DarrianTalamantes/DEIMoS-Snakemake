@@ -1,0 +1,52 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+all                1
+save_to_csv        4
+total              5
+
+Select jobs to execute...
+
+[Fri Mar  8 18:21:08 2024]
+rule save_to_csv:
+    input: output/samples/downselected/2022_05_10_NR50510_02.h5
+    output: output/samples/final_csvs/2022_05_10_NR50510_02.csv
+    jobid: 33
+    reason: Missing output files: output/samples/final_csvs/2022_05_10_NR50510_02.csv
+    wildcards: sample_type=samples, id=2022_05_10_NR50510_02
+    resources: tmpdir=/tmp
+
+[Fri Mar  8 18:22:12 2024]
+rule save_to_csv:
+    input: output/samples/downselected/2022_05_10_NR51588_02.h5
+    output: output/samples/final_csvs/2022_05_10_NR51588_02.csv
+    jobid: 49
+    reason: Missing output files: output/samples/final_csvs/2022_05_10_NR51588_02.csv
+    wildcards: sample_type=samples, id=2022_05_10_NR51588_02
+    resources: tmpdir=/tmp
+
+[Fri Mar  8 18:22:12 2024]
+rule save_to_csv:
+    input: output/samples/downselected/2022_05_10_NR51517_02.h5
+    output: output/samples/final_csvs/2022_05_10_NR51517_02.csv
+    jobid: 41
+    reason: Missing output files: output/samples/final_csvs/2022_05_10_NR51517_02.csv
+    wildcards: sample_type=samples, id=2022_05_10_NR51517_02
+    resources: tmpdir=/tmp
+
+[Fri Mar  8 18:22:12 2024]
+rule save_to_csv:
+    input: output/samples/downselected/2022_05_10_NR46543_02.h5
+    output: output/samples/final_csvs/2022_05_10_NR46543_02.csv
+    jobid: 1
+    reason: Missing output files: output/samples/final_csvs/2022_05_10_NR46543_02.csv
+    wildcards: sample_type=samples, id=2022_05_10_NR46543_02
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-03-08T181840.563610.snakemake.log

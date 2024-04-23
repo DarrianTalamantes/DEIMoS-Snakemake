@@ -1,0 +1,31 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+align_qc_sample         1
+all                     1
+downselect_peaks        1
+factorize_sample        1
+mzml2hdf                1
+peakpick_sample         1
+smooth_sample           1
+threshold_sample        1
+total                   8
+
+Select jobs to execute...
+
+[Mon Feb  5 13:40:13 2024]
+rule mzml2hdf:
+    input: input/samples/2023_08_22_P_LC_600_40_NIST_10X_01.mzML
+    output: output/samples/parsed/2023_08_22_P_LC_600_40_NIST_10X_01.h5
+    jobid: 5
+    reason: Missing output files: output/samples/parsed/2023_08_22_P_LC_600_40_NIST_10X_01.h5
+    wildcards: sample_type=samples, id=2023_08_22_P_LC_600_40_NIST_10X_01
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-02-05T134009.553224.snakemake.log

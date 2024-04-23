@@ -1,0 +1,333 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+align_qc_qc             4
+align_qc_sample         4
+all                     1
+downselect_peaks        4
+factorize_qc            4
+factorize_sample        4
+mzml2hdf                4
+peakpick_qc             4
+peakpick_sample         4
+smooth_qc               4
+smooth_sample           4
+threshold_qc            4
+threshold_sample        4
+total                  49
+
+Select jobs to execute...
+
+[Mon Feb 12 12:33:48 2024]
+rule mzml2hdf:
+    input: input/qc/2022_05_10_QC_04.mzML
+    output: output/qc/parsed/2022_05_10_QC_04.h5
+    jobid: 9
+    reason: Missing output files: output/qc/parsed/2022_05_10_QC_04.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_04
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:33:48 2024]
+rule mzml2hdf:
+    input: input/qc/2022_05_10_QC_07.mzML
+    output: output/qc/parsed/2022_05_10_QC_07.h5
+    jobid: 24
+    reason: Missing output files: output/qc/parsed/2022_05_10_QC_07.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_07
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:33:48 2024]
+rule mzml2hdf:
+    input: input/qc/2022_05_10_QC_06.mzML
+    output: output/qc/parsed/2022_05_10_QC_06.h5
+    jobid: 19
+    reason: Missing output files: output/qc/parsed/2022_05_10_QC_06.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_06
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:33:51 2024]
+rule mzml2hdf:
+    input: input/qc/2022_05_10_QC_05.mzML
+    output: output/qc/parsed/2022_05_10_QC_05.h5
+    jobid: 14
+    reason: Missing output files: output/qc/parsed/2022_05_10_QC_05.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_05
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:34:56 2024]
+Finished job 24.
+1 of 49 steps (2%) done
+Select jobs to execute...
+
+[Mon Feb 12 12:34:56 2024]
+rule factorize_qc:
+    input: output/qc/parsed/2022_05_10_QC_07.h5
+    output: output/qc/factors/2022_05_10_QC_07.npy
+    jobid: 23
+    reason: Missing output files: output/qc/factors/2022_05_10_QC_07.npy; Input files updated by another job: output/qc/parsed/2022_05_10_QC_07.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_07
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:35:01 2024]
+Finished job 9.
+2 of 49 steps (4%) done
+Select jobs to execute...
+
+[Mon Feb 12 12:35:01 2024]
+rule factorize_qc:
+    input: output/qc/parsed/2022_05_10_QC_04.h5
+    output: output/qc/factors/2022_05_10_QC_04.npy
+    jobid: 8
+    reason: Missing output files: output/qc/factors/2022_05_10_QC_04.npy; Input files updated by another job: output/qc/parsed/2022_05_10_QC_04.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_04
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:35:05 2024]
+Finished job 14.
+3 of 49 steps (6%) done
+[Mon Feb 12 12:35:06 2024]
+Finished job 19.
+4 of 49 steps (8%) done
+Select jobs to execute...
+
+[Mon Feb 12 12:35:06 2024]
+rule threshold_qc:
+    input: output/qc/parsed/2022_05_10_QC_04.h5
+    output: output/qc/thresholded/2022_05_10_QC_04.h5
+    jobid: 11
+    reason: Missing output files: output/qc/thresholded/2022_05_10_QC_04.h5; Input files updated by another job: output/qc/parsed/2022_05_10_QC_04.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_04
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:35:09 2024]
+rule factorize_qc:
+    input: output/qc/parsed/2022_05_10_QC_05.h5
+    output: output/qc/factors/2022_05_10_QC_05.npy
+    jobid: 13
+    reason: Missing output files: output/qc/factors/2022_05_10_QC_05.npy; Input files updated by another job: output/qc/parsed/2022_05_10_QC_05.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_05
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:35:13 2024]
+Finished job 23.
+5 of 49 steps (10%) done
+Select jobs to execute...
+
+[Mon Feb 12 12:35:13 2024]
+rule threshold_qc:
+    input: output/qc/parsed/2022_05_10_QC_06.h5
+    output: output/qc/thresholded/2022_05_10_QC_06.h5
+    jobid: 21
+    reason: Missing output files: output/qc/thresholded/2022_05_10_QC_06.h5; Input files updated by another job: output/qc/parsed/2022_05_10_QC_06.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_06
+    resources: tmpdir=/tmp
+
+Select jobs to execute...
+[Mon Feb 12 12:35:19 2024]
+Finished job 11.
+6 of 49 steps (12%) done
+
+[Mon Feb 12 12:35:19 2024]
+rule threshold_qc:
+    input: output/qc/parsed/2022_05_10_QC_07.h5
+    output: output/qc/thresholded/2022_05_10_QC_07.h5
+    jobid: 26
+    reason: Missing output files: output/qc/thresholded/2022_05_10_QC_07.h5; Input files updated by another job: output/qc/parsed/2022_05_10_QC_07.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_07
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:35:22 2024]
+Finished job 8.
+7 of 49 steps (14%) done
+Select jobs to execute...
+
+[Mon Feb 12 12:35:22 2024]
+rule factorize_qc:
+    input: output/qc/parsed/2022_05_10_QC_06.h5
+    output: output/qc/factors/2022_05_10_QC_06.npy
+    jobid: 18
+    reason: Missing output files: output/qc/factors/2022_05_10_QC_06.npy; Input files updated by another job: output/qc/parsed/2022_05_10_QC_06.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_06
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:35:24 2024]
+Finished job 13.
+8 of 49 steps (16%) done
+Select jobs to execute...
+
+[Mon Feb 12 12:35:24 2024]
+rule threshold_qc:
+    input: output/qc/parsed/2022_05_10_QC_05.h5
+    output: output/qc/thresholded/2022_05_10_QC_05.h5
+    jobid: 16
+    reason: Missing output files: output/qc/thresholded/2022_05_10_QC_05.h5; Input files updated by another job: output/qc/parsed/2022_05_10_QC_05.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_05
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:35:28 2024]
+Finished job 21.
+9 of 49 steps (18%) done
+Select jobs to execute...
+
+[Mon Feb 12 12:35:28 2024]
+rule smooth_qc:
+    input: output/qc/factors/2022_05_10_QC_04.npy, output/qc/thresholded/2022_05_10_QC_04.h5
+    output: output/qc/smoothed/2022_05_10_QC_04.h5
+    jobid: 10
+    reason: Missing output files: output/qc/smoothed/2022_05_10_QC_04.h5; Input files updated by another job: output/qc/thresholded/2022_05_10_QC_04.h5, output/qc/factors/2022_05_10_QC_04.npy
+    wildcards: sample_type=qc, id=2022_05_10_QC_04
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:35:36 2024]
+Finished job 26.
+10 of 49 steps (20%) done
+Select jobs to execute...
+
+[Mon Feb 12 12:35:36 2024]
+rule smooth_qc:
+    input: output/qc/factors/2022_05_10_QC_07.npy, output/qc/thresholded/2022_05_10_QC_07.h5
+    output: output/qc/smoothed/2022_05_10_QC_07.h5
+    jobid: 25
+    reason: Missing output files: output/qc/smoothed/2022_05_10_QC_07.h5; Input files updated by another job: output/qc/thresholded/2022_05_10_QC_07.h5, output/qc/factors/2022_05_10_QC_07.npy
+    wildcards: sample_type=qc, id=2022_05_10_QC_07
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:35:36 2024]
+Finished job 18.
+11 of 49 steps (22%) done
+[Mon Feb 12 12:35:36 2024]
+Finished job 16.
+12 of 49 steps (24%) done
+Select jobs to execute...
+
+[Mon Feb 12 12:35:36 2024]
+rule smooth_qc:
+    input: output/qc/factors/2022_05_10_QC_05.npy, output/qc/thresholded/2022_05_10_QC_05.h5
+    output: output/qc/smoothed/2022_05_10_QC_05.h5
+    jobid: 15
+    reason: Missing output files: output/qc/smoothed/2022_05_10_QC_05.h5; Input files updated by another job: output/qc/factors/2022_05_10_QC_05.npy, output/qc/thresholded/2022_05_10_QC_05.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_05
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:35:36 2024]
+rule smooth_qc:
+    input: output/qc/factors/2022_05_10_QC_06.npy, output/qc/thresholded/2022_05_10_QC_06.h5
+    output: output/qc/smoothed/2022_05_10_QC_06.h5
+    jobid: 20
+    reason: Missing output files: output/qc/smoothed/2022_05_10_QC_06.h5; Input files updated by another job: output/qc/thresholded/2022_05_10_QC_06.h5, output/qc/factors/2022_05_10_QC_06.npy
+    wildcards: sample_type=qc, id=2022_05_10_QC_06
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:35:39 2024]
+Finished job 10.
+13 of 49 steps (27%) done
+Select jobs to execute...
+
+[Mon Feb 12 12:35:39 2024]
+rule peakpick_qc:
+    input: output/qc/factors/2022_05_10_QC_04.npy, output/qc/smoothed/2022_05_10_QC_04.h5
+    output: output/qc/peakpicked/2022_05_10_QC_04.h5
+    jobid: 7
+    reason: Missing output files: output/qc/peakpicked/2022_05_10_QC_04.h5; Input files updated by another job: output/qc/smoothed/2022_05_10_QC_04.h5, output/qc/factors/2022_05_10_QC_04.npy
+    wildcards: sample_type=qc, id=2022_05_10_QC_04
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:35:48 2024]
+Finished job 20.
+14 of 49 steps (29%) done
+Select jobs to execute...
+
+[Mon Feb 12 12:35:48 2024]
+rule peakpick_qc:
+    input: output/qc/factors/2022_05_10_QC_06.npy, output/qc/smoothed/2022_05_10_QC_06.h5
+    output: output/qc/peakpicked/2022_05_10_QC_06.h5
+    jobid: 17
+    reason: Missing output files: output/qc/peakpicked/2022_05_10_QC_06.h5; Input files updated by another job: output/qc/smoothed/2022_05_10_QC_06.h5, output/qc/factors/2022_05_10_QC_06.npy
+    wildcards: sample_type=qc, id=2022_05_10_QC_06
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:35:48 2024]
+Finished job 7.
+15 of 49 steps (31%) done
+[Mon Feb 12 12:35:48 2024]
+Finished job 15.
+16 of 49 steps (33%) done
+Select jobs to execute...
+
+[Mon Feb 12 12:35:48 2024]
+rule peakpick_qc:
+    input: output/qc/factors/2022_05_10_QC_05.npy, output/qc/smoothed/2022_05_10_QC_05.h5
+    output: output/qc/peakpicked/2022_05_10_QC_05.h5
+    jobid: 12
+    reason: Missing output files: output/qc/peakpicked/2022_05_10_QC_05.h5; Input files updated by another job: output/qc/factors/2022_05_10_QC_05.npy, output/qc/smoothed/2022_05_10_QC_05.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_05
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:35:49 2024]
+Finished job 25.
+17 of 49 steps (35%) done
+Select jobs to execute...
+
+[Mon Feb 12 12:35:49 2024]
+rule peakpick_qc:
+    input: output/qc/factors/2022_05_10_QC_07.npy, output/qc/smoothed/2022_05_10_QC_07.h5
+    output: output/qc/peakpicked/2022_05_10_QC_07.h5
+    jobid: 22
+    reason: Missing output files: output/qc/peakpicked/2022_05_10_QC_07.h5; Input files updated by another job: output/qc/smoothed/2022_05_10_QC_07.h5, output/qc/factors/2022_05_10_QC_07.npy
+    wildcards: sample_type=qc, id=2022_05_10_QC_07
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:35:58 2024]
+Finished job 17.
+18 of 49 steps (37%) done
+[Mon Feb 12 12:36:07 2024]
+Finished job 22.
+19 of 49 steps (39%) done
+[Mon Feb 12 12:36:08 2024]
+Finished job 12.
+20 of 49 steps (41%) done
+Select jobs to execute...
+
+[Mon Feb 12 12:36:08 2024]
+rule align_qc_qc:
+    input: output/qc/peakpicked/2022_05_10_QC_07.h5, output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_05.h5, output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_07.h5
+    output: output/qc/qc_transform/2022_05_10_QC_07.npy, output/qc/qc_transform/plots/2022_05_10_QC_07.png
+    jobid: 29
+    reason: Missing output files: output/qc/qc_transform/2022_05_10_QC_07.npy; Input files updated by another job: output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_07.h5, output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_05.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_07
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:36:08 2024]
+rule align_qc_qc:
+    input: output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_05.h5, output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_07.h5
+    output: output/qc/qc_transform/2022_05_10_QC_04.npy, output/qc/qc_transform/plots/2022_05_10_QC_04.png
+    jobid: 6
+    reason: Missing output files: output/qc/qc_transform/2022_05_10_QC_04.npy; Input files updated by another job: output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_07.h5, output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_05.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_04
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:36:08 2024]
+rule align_qc_qc:
+    input: output/qc/peakpicked/2022_05_10_QC_05.h5, output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_05.h5, output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_07.h5
+    output: output/qc/qc_transform/2022_05_10_QC_05.npy, output/qc/qc_transform/plots/2022_05_10_QC_05.png
+    jobid: 27
+    reason: Missing output files: output/qc/qc_transform/2022_05_10_QC_05.npy; Input files updated by another job: output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_07.h5, output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_05.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_05
+    resources: tmpdir=/tmp
+
+[Mon Feb 12 12:36:08 2024]
+rule align_qc_qc:
+    input: output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_05.h5, output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_07.h5
+    output: output/qc/qc_transform/2022_05_10_QC_06.npy, output/qc/qc_transform/plots/2022_05_10_QC_06.png
+    jobid: 28
+    reason: Missing output files: output/qc/qc_transform/2022_05_10_QC_06.npy; Input files updated by another job: output/qc/peakpicked/2022_05_10_QC_04.h5, output/qc/peakpicked/2022_05_10_QC_07.h5, output/qc/peakpicked/2022_05_10_QC_06.h5, output/qc/peakpicked/2022_05_10_QC_05.h5
+    wildcards: sample_type=qc, id=2022_05_10_QC_06
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-02-12T123312.649811.snakemake.log
